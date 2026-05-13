@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Name</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f9fafb;
+  color: #222;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #555;
+}
+
+/* SECTIONS */
+section {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.hero h1 { font-size: 40px; }
+
+/* GRID */
+.grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* FADE-IN */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <strong>Your Name</strong>
+  <div>
+    <a href="#projects">Projects</a>
+    <a href="#docs">Docs</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero fade">
+  <h1>Your Name</h1>
+  <p>Engineering-focused portfolio: builds, systems, and writeups.</p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+
+    <div class="card fade">
+      <h3>Custom API Server</h3>
+      <p>Built a REST API with authentication and caching.</p>
+      <a href="project1.html">Read More →</a>
+    </div>
+
+    <div class="card fade">
+      <h3>Embedded System Build</h3>
+      <p>Microcontroller-based sensor system with real-time output.</p>
+      <a href="project2.html">Read More →</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="docs">
+  <h2>Docs / Guides</h2>
+  <div class="grid">
+
+    <div class="card fade">
+      <h3>How I Design APIs</h3>
+      <p>Principles and tradeoffs for scalable backend systems.</p>
+      <a href="doc1.html">Read Guide →</a>
+    </div>
+
+    <div class="card fade">
+      <h3>Debugging Workflow</h3>
+      <p>My systematic approach to isolating bugs.</p>
+      <a href="doc2.html">Read Guide →</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: your@email.com</p>
+</section>
+
+<script>
+const faders = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+});
+
+faders.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
